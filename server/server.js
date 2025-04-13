@@ -2,10 +2,14 @@ const express = require('express');
 const port = 3000;
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const connectDB = require('./config/db')
+
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
+connectDB();
 
 app.get('/api',(req,res)=> {
     res.status(200).json({message: "api is running"});

@@ -1,10 +1,26 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  firebaseUID: { type: String, required: true, unique: true }, // uniquely identifies user from Firebase
-  name: { type: String },
-  email: { type: String },
-  profilePic: { type: String }, // Optional profile picture URL
+  fullname: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+    lowercase: true
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  profile: {
+    type: String,
+    default: "https://ui-avatars.com/api/?name=Use"
+  }
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);

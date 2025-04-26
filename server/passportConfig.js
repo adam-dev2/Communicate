@@ -1,4 +1,4 @@
-const LocalStrategy = requie('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs')
 const User = require('./models/User')
 
